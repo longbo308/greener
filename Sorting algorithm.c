@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <string.h>
-int insert_sort (int arr[], int n){
+int insert_sort (int* arr, int n){
     /*
      * Standard in-place insertion sort.
      * This avoids allocating a temporary array and does fewer copies:
@@ -19,7 +19,7 @@ int insert_sort (int arr[], int n){
     }
     return 0; /* keep int return type for compatibility */
 }
-void bubble(int arr[],int n){
+void bubble(int* arr,int n){
     for (int i=0;i<n-1;i++){
         for (int j=0;j<n-i-1;j++){
             if (arr[j]>arr[j+1]){
@@ -43,4 +43,5 @@ int main(){
         printf("%d ",arr1[i]);
     }
     return 0;
+
 }
