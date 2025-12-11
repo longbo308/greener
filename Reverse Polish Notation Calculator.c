@@ -53,7 +53,7 @@ int main(){
 int sp = 0;
 double val[maxval];
 
-void push(double f){
+void push(double f){        
     if (sp < maxval)
         val[sp++] = f;
     else 
