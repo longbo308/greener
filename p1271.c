@@ -1,26 +1,20 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <malloc.h>
-#include <string.h>
-int compare(const void *a, const void *b) {
-    int x = *(int*)a;
-    int y = *(int*)b;
-    if (x < y) return -1;   
-    if (x > y) return 1;    
-    return 0;               
-}
 int main(){
     int n,m;
-    int* a;
-    a=(int*)malloc(m*sizeof(int));
-    scanf("%d %d",&n,&m);
+    scanf("%d%d",&n,&m);
+    int*count=(int*)calloc(n+1,sizeof(int));
     for (int i=0;i<m;i++){
-        scanf("%d",a+i);
+        int people=0;
+        scanf("%d",&people);
+        count[people]++;
     }
-    qsort(a,m, sizeof(int), compare);
-    for (int i=0;i<m;i++){
-        printf("%d ",*(a+i));
+    for (int i=1;i<=n;i++){
+        while (count[i]>0){
+            printf("%d ",i);
+            count[i]--;
+        }
     }
-    free(a);
+    free(count);
     return 0;
 }
